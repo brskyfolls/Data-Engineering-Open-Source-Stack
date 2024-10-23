@@ -1,74 +1,84 @@
-<p align="center">
-  <a href="https://airbyte.com"><img src="https://assets.website-files.com/605e01bc25f7e19a82e74788/624d9c4a375a55100be6b257_Airbyte_logo_color_dark.svg" alt="Airbyte"></a>
-</p>
-<p align="center">
-    <em>Data integration platform for ELT pipelines from APIs, databases & files to databases, warehouses & lakes</em>
-</p>
-<p align="center">
-<a href="https://github.com/airbytehq/airbyte/stargazers/" target="_blank">
-    <img src="https://img.shields.io/github/stars/airbytehq/airbyte?style=social&label=Star&maxAge=2592000" alt="Test">
-</a>
-<a href="https://github.com/airbytehq/airbyte/releases" target="_blank">
-    <img src="https://img.shields.io/github/v/release/airbytehq/airbyte?color=white" alt="Release">
-</a>
-<a href="https://airbytehq.slack.com/" target="_blank">
-    <img src="https://img.shields.io/badge/slack-join-white.svg?logo=slack" alt="Slack">
-</a>
-<a href="https://www.youtube.com/c/AirbyteHQ/?sub_confirmation=1" target="_blank">
-    <img alt="YouTube Channel Views" src="https://img.shields.io/youtube/channel/views/UCQ_JWEFzs1_INqdhIO3kmrw?style=social">
-</a>
-<a href="https://github.com/airbytehq/airbyte/actions/workflows/gradle.yml" target="_blank">
-    <img src="https://img.shields.io/github/actions/workflow/status/airbytehq/airbyte/gradle.yml?branch=master" alt="Build">
-</a>
-<a href="https://github.com/airbytehq/airbyte/tree/master/docs/project-overview/licenses" target="_blank">
-    <img src="https://img.shields.io/static/v1?label=license&message=MIT&color=white" alt="License">
-</a>
-<a href="https://github.com/airbytehq/airbyte/tree/master/docs/project-overview/licenses" target="_blank">
-    <img src="https://img.shields.io/static/v1?label=license&message=ELv2&color=white" alt="License">
-</a>
-</p>
+# Data Engineering Tools Setup with Docker
 
-We believe that only an **open-source solution to data movement** can cover the long tail of data sources while empowering data engineers to customize existing connectors. Our ultimate vision is to help you move data from any source to any destination. Airbyte already provides the largest [catalog](https://docs.airbyte.com/integrations/) of 300+ connectors for APIs, databases, data warehouses, and data lakes.
+This repository provides a Bash script and Docker Compose configuration to easily set up various open-source data engineering tools, including Airbyte, Dagster, and OpenMetadata, for quick deployment and testing. The setup leverages Docker containers to ensure a consistent and reproducible environment.
 
-![Airbyte OSS Connections UI](https://github.com/airbytehq/airbyte/assets/10663571/870d0479-2765-4ecb-abd5-a5bb877dae37)
-_Screenshot taken from [Airbyte Cloud](https://cloud.airbyte.com/signup)_.
+## Features
 
-### Getting Started
-* [Deploy Airbyte Open Source](https://docs.airbyte.com/quickstart/deploy-airbyte) or set up [Airbyte Cloud](https://docs.airbyte.com/cloud/getting-started-with-airbyte-cloud) to start centralizing your data.
-* Create connectors in minutes with our [no-code Connector Builder](https://docs.airbyte.com/connector-development/connector-builder-ui/overview) or [low-code CDK](https://docs.airbyte.com/connector-development/config-based/low-code-cdk-overview).
-* Explore popular use cases in our [tutorials](https://airbyte.com/tutorials).
-* Orchestrate Airbyte syncs with [Airflow](https://docs.airbyte.com/operator-guides/using-the-airflow-airbyte-operator), [Prefect](https://docs.airbyte.com/operator-guides/using-prefect-task), [Dagster](https://docs.airbyte.com/operator-guides/using-dagster-integration), [Kestra](https://docs.airbyte.com/operator-guides/using-kestra-plugin) or the [Airbyte API](https://reference.airbyte.com/reference/start).
-* Easily transform loaded data with [SQL](https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-sql) or [dbt](https://docs.airbyte.com/operator-guides/transformation-and-normalization/transformations-with-dbt).
+- **Airbyte**: A platform for data integration, allowing seamless data ingestion from various sources.
+- **Dagster**: An orchestration platform for building and monitoring data pipelines.
+- **OpenMetadata**: A metadata management tool that integrates with other data tools to enhance data governance.
+- **dbt**
+- **Dremio**
+- **Elasticsearch and PostgreSQL**: Used for storage and indexing within the metadata management setup.
+- **Docker Compose**: Orchestrates the setup and configuration of services.
 
-Try it out yourself with our [demo app](https://demo.airbyte.io/), visit our [full documentation](https://docs.airbyte.com/) and learn more about [recent announcements](https://airbyte.com/blog-categories/company-updates). See our [registry](https://connectors.airbyte.com/files/generated_reports/connector_registry_report.html) for a full list of connectors already available in Airbyte or Airbyte Cloud.
+## Prerequisites
 
-### Join the Airbyte Community
+- **Docker** and **Docker Compose** installed on your system.
+- Basic understanding of Docker and Docker Compose.
 
-The Airbyte community can be found in the [Airbyte Community Slack](https://airbyte.com/community), where you can ask questions and voice ideas. You can also ask for help in our [Airbyte Forum](https://github.com/airbytehq/airbyte/discussions), or join our [Office Hours](https://airbyte.io/daily-office-hours/). Airbyte's roadmap is publicly viewable on [GitHub](https://github.com/orgs/airbytehq/projects/37/views/1?pane=issue&itemId=26937554).
+## Getting Started
 
-For videos and blogs on data engineering and building your data stack, check out Airbyte's [Content Hub](https://airbyte.com/content-hub), [Youtube](https://www.youtube.com/c/AirbyteHQ), and sign up for our [newsletter](https://airbyte.com/newsletter).
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/brskyfolls/data-engineering-tools-setup.git
+   cd data-engineering-tools-setup```
 
-Dedicated support with direct access to our team is also available for Open Source users. If you are interested, please fill out this [form](https://airbyte.com/talk-to-sales-premium-support).
+2. **Run the Bash script to set up the environment**:
+  ```bash
+  ./run-ab-platform.sh
+  ```
 
-### Contributing
+## Access the Services
 
-If you've found a problem with Airbyte, please open a [GitHub issue](https://github.com/airbytehq/airbyte/issues/new/choose). To contribute to Airbyte and see our Code of Conduct, please see the [contributing guide](https://docs.airbyte.com/contributing-to-airbyte/). We have a list of [good first issues](https://github.com/airbytehq/airbyte/labels/contributor-program) that contain bugs that have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
+- **Airbyte**: [http://localhost:8000](http://localhost:8000)
+- **Dagster Webserver**: [http://localhost:3000](http://localhost:3000)
+- **OpenMetadata**: [http://localhost:8585](http://localhost:8585)
 
-### Security
+## Configuration
 
-Airbyte takes security issues very seriously. **Please do not file GitHub issues or post on our public forum for security vulnerabilities**. Email `security@airbyte.io` if you believe you have uncovered a vulnerability. In the message, try to provide a description of the issue and ideally a way of reproducing it. The security team will get back to you as soon as possible.
+The default configuration can be customized through the environment variables specified in the `docker-compose.yml` file. The configurations include PostgreSQL credentials, Airbyte settings, and other service parameters.
 
-[Airbyte Enterprise](https://airbyte.com/airbyte-enterprise) also offers additional security features (among others) on top of Airbyte Open Source.
+## Services Overview
 
-### License
+### Airbyte
 
-See the [LICENSE](docs/project-overview/licenses/) file for licensing information, and our [FAQ](docs/project-overview/licenses/license-faq.md) for any questions you may have on that topic.
+A data ingestion tool that supports numerous data sources. In this setup, Airbyte can be accessed via its web interface for configuring connectors and running data syncs.
 
-### Thank You
+### Dagster
 
-Airbyte would not be possible without the support and assistance of other open-source tools and companies. Visit our [thank you page](THANK-YOU.md) to learn more about how we build Airbyte.
+Used for orchestrating data pipelines. The setup includes a PostgreSQL backend for Dagster's metadata storage and multiple Docker services to run the web server, daemon, and user code.
 
-<a href="https://github.com/airbytehq/airbyte/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=airbytehq/airbyte"/>
-</a>
-# Data-Engineering-Open-Source-Stack
+### OpenMetadata
+
+An open-source tool for metadata management. It integrates with data platforms like Elasticsearch and PostgreSQL for indexing and storage. The server can be accessed for managing metadata and connecting to other data tools.
+
+### Additional Services
+
+- **PostgreSQL**: Used as a metadata store for Dagster and OpenMetadata.
+- **Elasticsearch**: Indexing for OpenMetadata.
+
+## Volumes
+
+Docker volumes are used to persist data for services like PostgreSQL, Elasticsearch, and Dagster.
+
+- `ingestion-volume-dag-airflow`
+- `ingestion-volume-dags`
+- `ingestion-volume-tmp`
+- `es-data`
+- `dremio`
+
+## License
+
+All tools included in this setup are open-source.
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## Acknowledgments
+
+- [Airbyte](https://airbyte.io/)
+- [Dagster](https://dagster.io/)
+- [OpenMetadata](https://open-metadata.org/)
+- [Docker](https://www.docker.com/)
